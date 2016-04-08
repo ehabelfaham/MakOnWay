@@ -1,0 +1,58 @@
+﻿@model IEnumerable<CPanel.Models.DAL.EmployeeData>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="../../Scripts/templatescripts/js/table/DataTables/jquery.js" type="text/javascript"></script>
+<script src="../../Scripts/templatescripts/js/table/DataTables/jquery.dataTables.js"
+    type="text/javascript"></script>
+<script src="../../Scripts/templatescripts/js/table/DataTables/jquery-ui.js" type="text/javascript"></script>
+<script src="../../Scripts/templatescripts/js/table/DataTables/jquery.dataTables.rowReordering.js"
+    type="text/javascript"></script>
+<script src="../../Scripts/templatescripts/js/table/DataTables/jquery.dataTables.rowGrouping.js"
+    type="text/javascript"></script>
+  <script type="text/javascript">
+      $(document).ready(function () {
+          $('#myDataTable').dataTable();
+      });
+        </script>
+
+<div class="box round first">
+<h2>Index</h2>
+
+<div class="block">
+                    <table id="myDataTable" class="display">
+					<thead>
+    <tr>
+    <th>
+    @Html.ActionLink("Create New", "Register")
+    </th>
+        <th>
+            Employee UserName
+        </th>
+        <th>
+            Employee Email
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Remove", "Delete", new { id=item.Emp_id }, new { onclick = "return confirm('Are you sure you wish to delete this Item?');" })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Emp_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Emp_Email)
+        </td>
+    </tr>
+}
+</tbody>
+</table>
+</div>
+</div>

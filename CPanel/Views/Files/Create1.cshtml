@@ -1,0 +1,64 @@
+﻿@model CPanel.Models.DAL.FileUpload
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm("Create", "Image", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    if (ViewData["Product_id"] != null)
+    {
+  @Html.Hidden("Product_id", (int)ViewData["Product_id"])
+    }
+    <div class="box round first">
+        <h2>Gallery</h2>
+        <div class="block">
+        <table id="tableId" cellpadding="10" cellspacing="10" width="100%" style="border-collapse: collapse;">
+        <tr>
+        <td class="tableTDcls">Select File 1</td>
+            <td class="tableTDcls"></td>
+        <td class="tableTDcls">
+        @Html.TextBox("source1", "", new { type = "file" })
+            @Html.ValidationMessage("source1")
+        </td>
+        </tr>
+        <tr>
+        <td class="tableTDcls">Select File 2</td>
+            <td class="tableTDcls"></td>
+        <td class="tableTDcls">
+        @Html.TextBox("source2", "", new { type = "file" })
+            @Html.ValidationMessage("source2")
+        </td>
+        </tr>
+        <tr>
+        <td class="tableTDcls">Select File 3</td>
+            <td class="tableTDcls"></td>
+        <td class="tableTDcls">
+        @Html.TextBox("source3", "", new { type = "file" })
+            @Html.ValidationMessage("source3")
+        </td>
+        </tr>
+        <tr>
+        <td class="tableTDcls">Select File 4</td>
+            <td class="tableTDcls"></td>
+        <td class="tableTDcls">
+        @Html.TextBox("source4", "", new { type = "file" })
+            @Html.ValidationMessage("source4")
+        </td>
+        </tr>
+        </table>
+        <p>
+            <input type="submit" value="Create"  class="btn btn-blue"/>
+        </p>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+   </div>
+   </div>
+}
