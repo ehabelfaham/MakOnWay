@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[Advertising] (
+    [ID]                      BIGINT          IDENTITY (1, 1) NOT NULL,
+    [EngineCapacity]          INT             NULL,
+    [price]                   DECIMAL (10, 2) NULL,
+    [ManufacturingYear]       DATE            NULL,
+    [IsAutomaticTransmission] BIT             NULL,
+    [IsExchanged]             BIT             NULL,
+    [AdTypeID]                INT             NULL,
+    [AdSubTypeID]             INT             NULL,
+    [CountryID]               INT             NULL,
+    [CityID]                  INT             NULL,
+    [RegionID]                INT             NULL,
+    [BrandID]                 INT             NULL,
+    [ModelID]                 INT             NULL,
+    [SProviderTypeID]         INT             NULL,
+    CONSTRAINT [PK_Advertising] PRIMARY KEY CLUSTERED ([ID] ASC),
+    CONSTRAINT [FK_Advertising_AdSubType] FOREIGN KEY ([AdSubTypeID]) REFERENCES [dbo].[AdSubType] ([ID]),
+    CONSTRAINT [FK_Advertising_AdType] FOREIGN KEY ([AdTypeID]) REFERENCES [dbo].[AdType] ([ID]),
+    CONSTRAINT [FK_Advertising_Brand] FOREIGN KEY ([BrandID]) REFERENCES [dbo].[Brand] ([ID]),
+    CONSTRAINT [FK_Advertising_City] FOREIGN KEY ([CityID]) REFERENCES [dbo].[City] ([ID]),
+    CONSTRAINT [FK_Advertising_Country] FOREIGN KEY ([CountryID]) REFERENCES [dbo].[Country] ([ID]),
+    CONSTRAINT [FK_Advertising_Model] FOREIGN KEY ([ModelID]) REFERENCES [dbo].[Model] ([ID]),
+    CONSTRAINT [FK_Advertising_Region] FOREIGN KEY ([RegionID]) REFERENCES [dbo].[Region] ([ID]),
+    CONSTRAINT [FK_Advertising_SProviderType] FOREIGN KEY ([SProviderTypeID]) REFERENCES [dbo].[SProviderType] ([ID])
+);
+
