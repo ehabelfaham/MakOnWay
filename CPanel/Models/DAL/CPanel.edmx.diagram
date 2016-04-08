@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7401011fb82c4b869c8b31b5c75ac468" Name="Diagram1">
+        <EntityTypeShape EntityType="MarcomModel.AdSubType" Width="1.5" PointX="3" PointY="24.25" />
+        <EntityTypeShape EntityType="MarcomModel.AdType" Width="1.5" PointX="3" PointY="11.875" />
+        <EntityTypeShape EntityType="MarcomModel.Advertising" Width="1.5" PointX="5.25" PointY="5.25" />
+        <EntityTypeShape EntityType="MarcomModel.Brand" Width="1.5" PointX="3" PointY="16.625" />
+        <EntityTypeShape EntityType="MarcomModel.City" Width="1.5" PointX="3" PointY="9.125" />
+        <EntityTypeShape EntityType="MarcomModel.CompanyAboutU" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MarcomModel.CompanyContactU" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="MarcomModel.CompanyProfile" Width="1.5" PointX="7.75" PointY="3.75" />
+        <EntityTypeShape EntityType="MarcomModel.Country" Width="1.5" PointX="0.75" PointY="3.875" />
+        <EntityTypeShape EntityType="MarcomModel.EmployeeData" Width="1.5" PointX="2.75" PointY="0.875" />
+        <EntityTypeShape EntityType="MarcomModel.FileUpload" Width="1.5" PointX="5" PointY="1.125" />
+        <EntityTypeShape EntityType="MarcomModel.ImagesGallery" Width="1.5" PointX="7.75" PointY="6.75" />
+        <EntityTypeShape EntityType="MarcomModel.LinkTable" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MarcomModel.Model" Width="1.5" PointX="3" PointY="21.5" />
+        <EntityTypeShape EntityType="MarcomModel.Region" Width="1.5" PointX="3" PointY="14.125" />
+        <EntityTypeShape EntityType="MarcomModel.SProviderType" Width="1.5" PointX="3" PointY="19.125" />
+        <EntityTypeShape EntityType="MarcomModel.SubTypeCategory" Width="1.5" PointX="5.25" PointY="24.25" />
+        <EntityTypeShape EntityType="MarcomModel.WebSiteTable" Width="1.5" PointX="9.75" PointY="3.75" />
+        <AssociationConnector Association="MarcomModel.FK_Advertising_AdSubType" />
+        <AssociationConnector Association="MarcomModel.FK_SubTypeCategory_AdSubType" />
+        <AssociationConnector Association="MarcomModel.FK_Advertising_AdType" />
+        <AssociationConnector Association="MarcomModel.FK_Advertising_Brand" />
+        <AssociationConnector Association="MarcomModel.FK_Advertising_City" />
+        <AssociationConnector Association="MarcomModel.FK_Advertising_Country" />
+        <AssociationConnector Association="MarcomModel.FK_Advertising_Model" />
+        <AssociationConnector Association="MarcomModel.FK_Advertising_Region" />
+        <AssociationConnector Association="MarcomModel.FK_Advertising_SProviderType" />
+        <AssociationConnector Association="MarcomModel.FK_Model_Brand" />
+        <AssociationConnector Association="MarcomModel.FK_City_Country" />
+        <AssociationConnector Association="MarcomModel.FK_FileUpload_EmployeeData" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

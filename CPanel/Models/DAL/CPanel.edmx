@@ -1,0 +1,1011 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MarcomModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdSubType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArName" Type="nvarchar" MaxLength="200" />
+          <Property Name="EnName" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="AdType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArName" Type="nvarchar" MaxLength="200" />
+          <Property Name="EnName" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Advertising">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EngineCapacity" Type="int" />
+          <Property Name="price" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ManufacturingYear" Type="date" />
+          <Property Name="IsAutomaticTransmission" Type="bit" />
+          <Property Name="IsExchanged" Type="bit" />
+          <Property Name="AdTypeID" Type="int" />
+          <Property Name="AdSubTypeID" Type="int" />
+          <Property Name="CountryID" Type="int" />
+          <Property Name="CityID" Type="int" />
+          <Property Name="RegionID" Type="int" />
+          <Property Name="BrandID" Type="int" />
+          <Property Name="ModelID" Type="int" />
+          <Property Name="SProviderTypeID" Type="int" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArName" Type="nvarchar" MaxLength="200" />
+          <Property Name="EnName" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryID" Type="int" />
+          <Property Name="ArName" Type="nvarchar" MaxLength="200" />
+          <Property Name="EnName" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="CompanyAboutUs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HomeTxt_Eng" Type="nvarchar(max)" />
+          <Property Name="HomeTxt_Ar" Type="nvarchar(max)" />
+          <Property Name="AboutUs_txt_Eng" Type="nvarchar(max)" />
+          <Property Name="AboutUs_txt_Ar" Type="nvarchar(max)" />
+          <Property Name="Image_Path" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CompanyContactUs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContactUs_Eng" Type="nvarchar(max)" />
+          <Property Name="ContactUs_Ar" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CompanyProfile">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Company_Profile_Eng" Type="nvarchar(max)" />
+          <Property Name="Company_Profile_Ar" Type="nvarchar(max)" />
+          <Property Name="InsertedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArName" Type="nvarchar" MaxLength="200" />
+          <Property Name="EnName" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="EmployeeData">
+          <Key>
+            <PropertyRef Name="Emp_id" />
+          </Key>
+          <Property Name="Emp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emp_name" Type="nvarchar(max)" />
+          <Property Name="Emp_Email" Type="nvarchar(max)" />
+          <Property Name="Emp_Address" Type="nvarchar(max)" />
+          <Property Name="Emp_Mobile" Type="nvarchar(max)" />
+          <Property Name="Emp_Password" Type="nvarchar(max)" />
+          <Property Name="Emp_IsAdmin" Type="bit" />
+        </EntityType>
+        <EntityType Name="FileUpload">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImagePath" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="IsPublic" Type="bit" />
+        </EntityType>
+        <EntityType Name="ImagesGallery">
+          <Key>
+            <PropertyRef Name="Image_id" />
+          </Key>
+          <Property Name="Image_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image_Path" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="LinkTable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Link_Src" Type="nvarchar(max)" />
+          <Property Name="Image_Path" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Model">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrandID" Type="int" />
+          <Property Name="ArName" Type="nvarchar" MaxLength="200" />
+          <Property Name="EnName" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityID" Type="int" />
+          <Property Name="ArName" Type="nvarchar" MaxLength="200" />
+          <Property Name="EnName" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="SProviderType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArName" Type="nvarchar" MaxLength="200" />
+          <Property Name="EnName" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="SubTypeCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdSubTypeID" Type="int" />
+          <Property Name="ArName" Type="nvarchar" MaxLength="200" />
+          <Property Name="EnName" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="WebSiteTable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WebSite_Src" Type="nvarchar(max)" />
+          <Property Name="Image_Path" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_Advertising_AdSubType">
+          <End Role="AdSubType" Type="Self.AdSubType" Multiplicity="0..1" />
+          <End Role="Advertising" Type="Self.Advertising" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdSubType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Advertising">
+              <PropertyRef Name="AdSubTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertising_AdType">
+          <End Role="AdType" Type="Self.AdType" Multiplicity="0..1" />
+          <End Role="Advertising" Type="Self.Advertising" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Advertising">
+              <PropertyRef Name="AdTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertising_Brand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+          <End Role="Advertising" Type="Self.Advertising" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Advertising">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertising_City">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Advertising" Type="Self.Advertising" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Advertising">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertising_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Advertising" Type="Self.Advertising" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Advertising">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertising_Model">
+          <End Role="Model" Type="Self.Model" Multiplicity="0..1" />
+          <End Role="Advertising" Type="Self.Advertising" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Model">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Advertising">
+              <PropertyRef Name="ModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertising_Region">
+          <End Role="Region" Type="Self.Region" Multiplicity="0..1" />
+          <End Role="Advertising" Type="Self.Advertising" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Advertising">
+              <PropertyRef Name="RegionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertising_SProviderType">
+          <End Role="SProviderType" Type="Self.SProviderType" Multiplicity="0..1" />
+          <End Role="Advertising" Type="Self.Advertising" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SProviderType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Advertising">
+              <PropertyRef Name="SProviderTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_City_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FileUpload_EmployeeData">
+          <End Role="EmployeeData" Type="Self.EmployeeData" Multiplicity="0..1" />
+          <End Role="FileUpload" Type="Self.FileUpload" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeData">
+              <PropertyRef Name="Emp_id" />
+            </Principal>
+            <Dependent Role="FileUpload">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Model_Brand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+          <End Role="Model" Type="Self.Model" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Model">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubTypeCategory_AdSubType">
+          <End Role="AdSubType" Type="Self.AdSubType" Multiplicity="0..1" />
+          <End Role="SubTypeCategory" Type="Self.SubTypeCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdSubType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SubTypeCategory">
+              <PropertyRef Name="AdSubTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MarcomModelStoreContainer">
+          <EntitySet Name="AdSubType" EntityType="Self.AdSubType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AdType" EntityType="Self.AdType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Advertising" EntityType="Self.Advertising" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyAboutUs" EntityType="Self.CompanyAboutUs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyContactUs" EntityType="Self.CompanyContactUs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyProfile" EntityType="Self.CompanyProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeData" EntityType="Self.EmployeeData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FileUpload" EntityType="Self.FileUpload" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImagesGallery" EntityType="Self.ImagesGallery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LinkTable" EntityType="Self.LinkTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Model" EntityType="Self.Model" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SProviderType" EntityType="Self.SProviderType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubTypeCategory" EntityType="Self.SubTypeCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WebSiteTable" EntityType="Self.WebSiteTable" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Advertising_AdSubType" Association="Self.FK_Advertising_AdSubType">
+            <End Role="AdSubType" EntitySet="AdSubType" />
+            <End Role="Advertising" EntitySet="Advertising" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertising_AdType" Association="Self.FK_Advertising_AdType">
+            <End Role="AdType" EntitySet="AdType" />
+            <End Role="Advertising" EntitySet="Advertising" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertising_Brand" Association="Self.FK_Advertising_Brand">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Advertising" EntitySet="Advertising" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertising_City" Association="Self.FK_Advertising_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Advertising" EntitySet="Advertising" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertising_Country" Association="Self.FK_Advertising_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Advertising" EntitySet="Advertising" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertising_Model" Association="Self.FK_Advertising_Model">
+            <End Role="Model" EntitySet="Model" />
+            <End Role="Advertising" EntitySet="Advertising" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertising_Region" Association="Self.FK_Advertising_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Advertising" EntitySet="Advertising" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertising_SProviderType" Association="Self.FK_Advertising_SProviderType">
+            <End Role="SProviderType" EntitySet="SProviderType" />
+            <End Role="Advertising" EntitySet="Advertising" />
+          </AssociationSet>
+          <AssociationSet Name="FK_City_Country" Association="Self.FK_City_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FileUpload_EmployeeData" Association="Self.FK_FileUpload_EmployeeData">
+            <End Role="EmployeeData" EntitySet="EmployeeData" />
+            <End Role="FileUpload" EntitySet="FileUpload" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Model_Brand" Association="Self.FK_Model_Brand">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Model" EntitySet="Model" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubTypeCategory_AdSubType" Association="Self.FK_SubTypeCategory_AdSubType">
+            <End Role="AdSubType" EntitySet="AdSubType" />
+            <End Role="SubTypeCategory" EntitySet="SubTypeCategory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MarcomModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CPanelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdSubTypes" EntityType="MarcomModel.AdSubType" />
+          <EntitySet Name="AdTypes" EntityType="MarcomModel.AdType" />
+          <EntitySet Name="Advertisings" EntityType="MarcomModel.Advertising" />
+          <EntitySet Name="Brands" EntityType="MarcomModel.Brand" />
+          <EntitySet Name="Cities" EntityType="MarcomModel.City" />
+          <EntitySet Name="CompanyAboutUs" EntityType="MarcomModel.CompanyAboutU" />
+          <EntitySet Name="CompanyContactUs" EntityType="MarcomModel.CompanyContactU" />
+          <EntitySet Name="CompanyProfiles" EntityType="MarcomModel.CompanyProfile" />
+          <EntitySet Name="Countries" EntityType="MarcomModel.Country" />
+          <EntitySet Name="EmployeeDatas" EntityType="MarcomModel.EmployeeData" />
+          <EntitySet Name="FileUploads" EntityType="MarcomModel.FileUpload" />
+          <EntitySet Name="ImagesGalleries" EntityType="MarcomModel.ImagesGallery" />
+          <EntitySet Name="LinkTables" EntityType="MarcomModel.LinkTable" />
+          <EntitySet Name="Models" EntityType="MarcomModel.Model" />
+          <EntitySet Name="Regions" EntityType="MarcomModel.Region" />
+          <EntitySet Name="SProviderTypes" EntityType="MarcomModel.SProviderType" />
+          <EntitySet Name="SubTypeCategories" EntityType="MarcomModel.SubTypeCategory" />
+          <EntitySet Name="WebSiteTables" EntityType="MarcomModel.WebSiteTable" />
+          <AssociationSet Name="FK_Advertising_AdSubType" Association="MarcomModel.FK_Advertising_AdSubType">
+            <End Role="AdSubType" EntitySet="AdSubTypes" />
+            <End Role="Advertising" EntitySet="Advertisings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubTypeCategory_AdSubType" Association="MarcomModel.FK_SubTypeCategory_AdSubType">
+            <End Role="AdSubType" EntitySet="AdSubTypes" />
+            <End Role="SubTypeCategory" EntitySet="SubTypeCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertising_AdType" Association="MarcomModel.FK_Advertising_AdType">
+            <End Role="AdType" EntitySet="AdTypes" />
+            <End Role="Advertising" EntitySet="Advertisings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertising_Brand" Association="MarcomModel.FK_Advertising_Brand">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="Advertising" EntitySet="Advertisings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertising_City" Association="MarcomModel.FK_Advertising_City">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Advertising" EntitySet="Advertisings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertising_Country" Association="MarcomModel.FK_Advertising_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Advertising" EntitySet="Advertisings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertising_Model" Association="MarcomModel.FK_Advertising_Model">
+            <End Role="Model" EntitySet="Models" />
+            <End Role="Advertising" EntitySet="Advertisings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertising_Region" Association="MarcomModel.FK_Advertising_Region">
+            <End Role="Region" EntitySet="Regions" />
+            <End Role="Advertising" EntitySet="Advertisings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertising_SProviderType" Association="MarcomModel.FK_Advertising_SProviderType">
+            <End Role="SProviderType" EntitySet="SProviderTypes" />
+            <End Role="Advertising" EntitySet="Advertisings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Model_Brand" Association="MarcomModel.FK_Model_Brand">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="Model" EntitySet="Models" />
+          </AssociationSet>
+          <AssociationSet Name="FK_City_Country" Association="MarcomModel.FK_City_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="City" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FileUpload_EmployeeData" Association="MarcomModel.FK_FileUpload_EmployeeData">
+            <End Role="EmployeeData" EntitySet="EmployeeDatas" />
+            <End Role="FileUpload" EntitySet="FileUploads" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AdSubType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EnName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Advertisings" Relationship="MarcomModel.FK_Advertising_AdSubType" FromRole="AdSubType" ToRole="Advertising" />
+          <NavigationProperty Name="SubTypeCategories" Relationship="MarcomModel.FK_SubTypeCategory_AdSubType" FromRole="AdSubType" ToRole="SubTypeCategory" />
+        </EntityType>
+        <EntityType Name="AdType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EnName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Advertisings" Relationship="MarcomModel.FK_Advertising_AdType" FromRole="AdType" ToRole="Advertising" />
+        </EntityType>
+        <EntityType Name="Advertising">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EngineCapacity" Type="Int32" />
+          <Property Name="price" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ManufacturingYear" Type="DateTime" Precision="0" />
+          <Property Name="IsAutomaticTransmission" Type="Boolean" />
+          <Property Name="IsExchanged" Type="Boolean" />
+          <Property Name="AdTypeID" Type="Int32" />
+          <Property Name="AdSubTypeID" Type="Int32" />
+          <Property Name="CountryID" Type="Int32" />
+          <Property Name="CityID" Type="Int32" />
+          <Property Name="RegionID" Type="Int32" />
+          <Property Name="BrandID" Type="Int32" />
+          <Property Name="ModelID" Type="Int32" />
+          <Property Name="SProviderTypeID" Type="Int32" />
+          <NavigationProperty Name="AdSubType" Relationship="MarcomModel.FK_Advertising_AdSubType" FromRole="Advertising" ToRole="AdSubType" />
+          <NavigationProperty Name="AdType" Relationship="MarcomModel.FK_Advertising_AdType" FromRole="Advertising" ToRole="AdType" />
+          <NavigationProperty Name="Brand" Relationship="MarcomModel.FK_Advertising_Brand" FromRole="Advertising" ToRole="Brand" />
+          <NavigationProperty Name="City" Relationship="MarcomModel.FK_Advertising_City" FromRole="Advertising" ToRole="City" />
+          <NavigationProperty Name="Country" Relationship="MarcomModel.FK_Advertising_Country" FromRole="Advertising" ToRole="Country" />
+          <NavigationProperty Name="Model" Relationship="MarcomModel.FK_Advertising_Model" FromRole="Advertising" ToRole="Model" />
+          <NavigationProperty Name="Region" Relationship="MarcomModel.FK_Advertising_Region" FromRole="Advertising" ToRole="Region" />
+          <NavigationProperty Name="SProviderType" Relationship="MarcomModel.FK_Advertising_SProviderType" FromRole="Advertising" ToRole="SProviderType" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EnName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Advertisings" Relationship="MarcomModel.FK_Advertising_Brand" FromRole="Brand" ToRole="Advertising" />
+          <NavigationProperty Name="Models" Relationship="MarcomModel.FK_Model_Brand" FromRole="Brand" ToRole="Model" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryID" Type="Int32" />
+          <Property Name="ArName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EnName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Advertisings" Relationship="MarcomModel.FK_Advertising_City" FromRole="City" ToRole="Advertising" />
+          <NavigationProperty Name="Country" Relationship="MarcomModel.FK_City_Country" FromRole="City" ToRole="Country" />
+        </EntityType>
+        <EntityType Name="CompanyAboutU">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HomeTxt_Eng" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HomeTxt_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AboutUs_txt_Eng" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AboutUs_txt_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image_Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CompanyContactU">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactUs_Eng" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContactUs_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CompanyProfile">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Company_Profile_Eng" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Company_Profile_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EnName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Advertisings" Relationship="MarcomModel.FK_Advertising_Country" FromRole="Country" ToRole="Advertising" />
+          <NavigationProperty Name="Cities" Relationship="MarcomModel.FK_City_Country" FromRole="Country" ToRole="City" />
+        </EntityType>
+        <EntityType Name="EmployeeData">
+          <Key>
+            <PropertyRef Name="Emp_id" />
+          </Key>
+          <Property Name="Emp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emp_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Emp_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Emp_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Emp_Mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Emp_Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Emp_IsAdmin" Type="Boolean" />
+          <NavigationProperty Name="FileUploads" Relationship="MarcomModel.FK_FileUpload_EmployeeData" FromRole="EmployeeData" ToRole="FileUpload" />
+        </EntityType>
+        <EntityType Name="FileUpload">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="IsPublic" Type="Boolean" />
+          <NavigationProperty Name="EmployeeData" Relationship="MarcomModel.FK_FileUpload_EmployeeData" FromRole="FileUpload" ToRole="EmployeeData" />
+        </EntityType>
+        <EntityType Name="ImagesGallery">
+          <Key>
+            <PropertyRef Name="Image_id" />
+          </Key>
+          <Property Name="Image_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image_Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LinkTable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Link_Src" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image_Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Model">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrandID" Type="Int32" />
+          <Property Name="ArName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EnName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Advertisings" Relationship="MarcomModel.FK_Advertising_Model" FromRole="Model" ToRole="Advertising" />
+          <NavigationProperty Name="Brand" Relationship="MarcomModel.FK_Model_Brand" FromRole="Model" ToRole="Brand" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityID" Type="Int32" />
+          <Property Name="ArName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EnName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Advertisings" Relationship="MarcomModel.FK_Advertising_Region" FromRole="Region" ToRole="Advertising" />
+        </EntityType>
+        <EntityType Name="SProviderType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EnName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Advertisings" Relationship="MarcomModel.FK_Advertising_SProviderType" FromRole="SProviderType" ToRole="Advertising" />
+        </EntityType>
+        <EntityType Name="SubTypeCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdSubTypeID" Type="Int32" />
+          <Property Name="ArName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EnName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AdSubType" Relationship="MarcomModel.FK_SubTypeCategory_AdSubType" FromRole="SubTypeCategory" ToRole="AdSubType" />
+        </EntityType>
+        <EntityType Name="WebSiteTable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WebSite_Src" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image_Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Advertising_AdSubType">
+          <End Type="MarcomModel.AdSubType" Role="AdSubType" Multiplicity="0..1" />
+          <End Type="MarcomModel.Advertising" Role="Advertising" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdSubType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Advertising">
+              <PropertyRef Name="AdSubTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubTypeCategory_AdSubType">
+          <End Type="MarcomModel.AdSubType" Role="AdSubType" Multiplicity="0..1" />
+          <End Type="MarcomModel.SubTypeCategory" Role="SubTypeCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdSubType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SubTypeCategory">
+              <PropertyRef Name="AdSubTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertising_AdType">
+          <End Type="MarcomModel.AdType" Role="AdType" Multiplicity="0..1" />
+          <End Type="MarcomModel.Advertising" Role="Advertising" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Advertising">
+              <PropertyRef Name="AdTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertising_Brand">
+          <End Type="MarcomModel.Brand" Role="Brand" Multiplicity="0..1" />
+          <End Type="MarcomModel.Advertising" Role="Advertising" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Advertising">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertising_City">
+          <End Type="MarcomModel.City" Role="City" Multiplicity="0..1" />
+          <End Type="MarcomModel.Advertising" Role="Advertising" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Advertising">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertising_Country">
+          <End Type="MarcomModel.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="MarcomModel.Advertising" Role="Advertising" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Advertising">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertising_Model">
+          <End Type="MarcomModel.Model" Role="Model" Multiplicity="0..1" />
+          <End Type="MarcomModel.Advertising" Role="Advertising" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Model">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Advertising">
+              <PropertyRef Name="ModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertising_Region">
+          <End Type="MarcomModel.Region" Role="Region" Multiplicity="0..1" />
+          <End Type="MarcomModel.Advertising" Role="Advertising" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Advertising">
+              <PropertyRef Name="RegionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertising_SProviderType">
+          <End Type="MarcomModel.SProviderType" Role="SProviderType" Multiplicity="0..1" />
+          <End Type="MarcomModel.Advertising" Role="Advertising" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SProviderType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Advertising">
+              <PropertyRef Name="SProviderTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Model_Brand">
+          <End Type="MarcomModel.Brand" Role="Brand" Multiplicity="0..1" />
+          <End Type="MarcomModel.Model" Role="Model" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Model">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_City_Country">
+          <End Type="MarcomModel.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="MarcomModel.City" Role="City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FileUpload_EmployeeData">
+          <End Type="MarcomModel.EmployeeData" Role="EmployeeData" Multiplicity="0..1" />
+          <End Type="MarcomModel.FileUpload" Role="FileUpload" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeData">
+              <PropertyRef Name="Emp_id" />
+            </Principal>
+            <Dependent Role="FileUpload">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MarcomModelStoreContainer" CdmEntityContainer="CPanelEntities">
+          <EntitySetMapping Name="AdSubTypes">
+            <EntityTypeMapping TypeName="MarcomModel.AdSubType">
+              <MappingFragment StoreEntitySet="AdSubType">
+                <ScalarProperty Name="EnName" ColumnName="EnName" />
+                <ScalarProperty Name="ArName" ColumnName="ArName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdTypes">
+            <EntityTypeMapping TypeName="MarcomModel.AdType">
+              <MappingFragment StoreEntitySet="AdType">
+                <ScalarProperty Name="EnName" ColumnName="EnName" />
+                <ScalarProperty Name="ArName" ColumnName="ArName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Advertisings">
+            <EntityTypeMapping TypeName="MarcomModel.Advertising">
+              <MappingFragment StoreEntitySet="Advertising">
+                <ScalarProperty Name="SProviderTypeID" ColumnName="SProviderTypeID" />
+                <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="AdSubTypeID" ColumnName="AdSubTypeID" />
+                <ScalarProperty Name="AdTypeID" ColumnName="AdTypeID" />
+                <ScalarProperty Name="IsExchanged" ColumnName="IsExchanged" />
+                <ScalarProperty Name="IsAutomaticTransmission" ColumnName="IsAutomaticTransmission" />
+                <ScalarProperty Name="ManufacturingYear" ColumnName="ManufacturingYear" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="EngineCapacity" ColumnName="EngineCapacity" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="MarcomModel.Brand">
+              <MappingFragment StoreEntitySet="Brand">
+                <ScalarProperty Name="EnName" ColumnName="EnName" />
+                <ScalarProperty Name="ArName" ColumnName="ArName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="MarcomModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="EnName" ColumnName="EnName" />
+                <ScalarProperty Name="ArName" ColumnName="ArName" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyAboutUs">
+            <EntityTypeMapping TypeName="MarcomModel.CompanyAboutU">
+              <MappingFragment StoreEntitySet="CompanyAboutUs">
+                <ScalarProperty Name="Image_Path" ColumnName="Image_Path" />
+                <ScalarProperty Name="AboutUs_txt_Ar" ColumnName="AboutUs_txt_Ar" />
+                <ScalarProperty Name="AboutUs_txt_Eng" ColumnName="AboutUs_txt_Eng" />
+                <ScalarProperty Name="HomeTxt_Ar" ColumnName="HomeTxt_Ar" />
+                <ScalarProperty Name="HomeTxt_Eng" ColumnName="HomeTxt_Eng" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyContactUs">
+            <EntityTypeMapping TypeName="MarcomModel.CompanyContactU">
+              <MappingFragment StoreEntitySet="CompanyContactUs">
+                <ScalarProperty Name="ContactUs_Ar" ColumnName="ContactUs_Ar" />
+                <ScalarProperty Name="ContactUs_Eng" ColumnName="ContactUs_Eng" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyProfiles">
+            <EntityTypeMapping TypeName="MarcomModel.CompanyProfile">
+              <MappingFragment StoreEntitySet="CompanyProfile">
+                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+                <ScalarProperty Name="Company_Profile_Ar" ColumnName="Company_Profile_Ar" />
+                <ScalarProperty Name="Company_Profile_Eng" ColumnName="Company_Profile_Eng" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="MarcomModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="EnName" ColumnName="EnName" />
+                <ScalarProperty Name="ArName" ColumnName="ArName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeDatas">
+            <EntityTypeMapping TypeName="MarcomModel.EmployeeData">
+              <MappingFragment StoreEntitySet="EmployeeData">
+                <ScalarProperty Name="Emp_IsAdmin" ColumnName="Emp_IsAdmin" />
+                <ScalarProperty Name="Emp_Password" ColumnName="Emp_Password" />
+                <ScalarProperty Name="Emp_Mobile" ColumnName="Emp_Mobile" />
+                <ScalarProperty Name="Emp_Address" ColumnName="Emp_Address" />
+                <ScalarProperty Name="Emp_Email" ColumnName="Emp_Email" />
+                <ScalarProperty Name="Emp_name" ColumnName="Emp_name" />
+                <ScalarProperty Name="Emp_id" ColumnName="Emp_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileUploads">
+            <EntityTypeMapping TypeName="MarcomModel.FileUpload">
+              <MappingFragment StoreEntitySet="FileUpload">
+                <ScalarProperty Name="IsPublic" ColumnName="IsPublic" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagesGalleries">
+            <EntityTypeMapping TypeName="MarcomModel.ImagesGallery">
+              <MappingFragment StoreEntitySet="ImagesGallery">
+                <ScalarProperty Name="Image_Path" ColumnName="Image_Path" />
+                <ScalarProperty Name="Image_id" ColumnName="Image_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LinkTables">
+            <EntityTypeMapping TypeName="MarcomModel.LinkTable">
+              <MappingFragment StoreEntitySet="LinkTable">
+                <ScalarProperty Name="Image_Path" ColumnName="Image_Path" />
+                <ScalarProperty Name="Link_Src" ColumnName="Link_Src" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Models">
+            <EntityTypeMapping TypeName="MarcomModel.Model">
+              <MappingFragment StoreEntitySet="Model">
+                <ScalarProperty Name="EnName" ColumnName="EnName" />
+                <ScalarProperty Name="ArName" ColumnName="ArName" />
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regions">
+            <EntityTypeMapping TypeName="MarcomModel.Region">
+              <MappingFragment StoreEntitySet="Region">
+                <ScalarProperty Name="EnName" ColumnName="EnName" />
+                <ScalarProperty Name="ArName" ColumnName="ArName" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SProviderTypes">
+            <EntityTypeMapping TypeName="MarcomModel.SProviderType">
+              <MappingFragment StoreEntitySet="SProviderType">
+                <ScalarProperty Name="EnName" ColumnName="EnName" />
+                <ScalarProperty Name="ArName" ColumnName="ArName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubTypeCategories">
+            <EntityTypeMapping TypeName="MarcomModel.SubTypeCategory">
+              <MappingFragment StoreEntitySet="SubTypeCategory">
+                <ScalarProperty Name="EnName" ColumnName="EnName" />
+                <ScalarProperty Name="ArName" ColumnName="ArName" />
+                <ScalarProperty Name="AdSubTypeID" ColumnName="AdSubTypeID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WebSiteTables">
+            <EntityTypeMapping TypeName="MarcomModel.WebSiteTable">
+              <MappingFragment StoreEntitySet="WebSiteTable">
+                <ScalarProperty Name="Image_Path" ColumnName="Image_Path" />
+                <ScalarProperty Name="WebSite_Src" ColumnName="WebSite_Src" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
