@@ -1,0 +1,56 @@
+﻿@model CPanel.Models.CompanyContactUsModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <!-- Load TinyMCE -->
+    <script src="@Url.Content("~/Scripts/templatescripts/js/tiny-mce/jquery.tinymce.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm("Edit", "ContactUs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <div class="box round first">
+        <h2>Edit Company Profile</h2>
+        <div class="block">
+        <table id="tableId" cellpadding="10" cellspacing="10" width="100%" style="border-collapse: collapse;">
+         <tr>
+            <td class="tableTDcls">
+            Company Profile In (English) *
+            </td>
+            <td class="tableTDcls"></td>
+            <td class="tableTDcls">
+            @Html.TextAreaFor(model => model.ContactUs_Eng, new { @class = "tinymce" })
+            @Html.ValidationMessageFor(model => model.ContactUs_Eng)
+            </td>
+        </tr>
+        <tr>
+        <td class="tableTDcls">
+            Company Profile In (Arabic) *
+            </td>
+            <td class="tableTDcls"></td>
+            <td class="tableTDcls">
+            @Html.TextAreaFor(model => model.ContactUs_Ar, new { @class = "tinymce" })
+            @Html.ValidationMessageFor(model => model.ContactUs_Ar)
+            </td>
+        </tr>
+        <tr>
+        </table>
+        <p>
+            <input type="submit" value="Save"  class="btn btn-blue"/>
+        </p>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+   </div>
+   </div>
+}
+
+
+<script type="text/javascript">
+    setupTinyMCE();
+</script>

@@ -1,0 +1,53 @@
+﻿@model CPanel.Models.WebSiteDataModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+@using (Html.BeginForm("Edit", "WebSites", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <div class="box round first">
+        <h2>
+            Edit WebSites</h2>
+        <div class="block">
+            <table id="tableId" cellpadding="10" cellspacing="10" width="100%" style="border-collapse: collapse;">
+                <tr>
+                    <td class="tableTDcls">
+                        WebSites
+                    </td>
+                    <td class="tableTDcls">
+                    </td>
+                    <td class="tableTDcls">
+                        @Html.TextBoxFor(model => model.WebSite_Src)
+                        @Html.ValidationMessageFor(model => model.WebSite_Src)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tableTDcls">
+                        Select Image *
+                    </td>
+                    <td class="tableTDcls">
+                    </td>
+                    <td class="tableTDcls">
+                        @Html.TextBoxFor(m => m.Image_Path, new { type = "file" })
+                        @Html.ValidationMessageFor(model => model.Image_Path)
+                    </td>
+                </tr>
+            </table>
+            <div style="position: absolute; margin-top: -155px; margin-left: 700px;">
+                @if (Model.Image_PathStr != null && Model.Image_PathStr != "")
+                {
+                    <img src="/images/WebSites/@Model.Image_PathStr" width="200px" height="200px" />
+                }
+            </div>
+            <p>
+                <input type="submit" value="Save" class="btn btn-blue" />
+            </p>
+            <div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        </div>
+    </div>
+}
