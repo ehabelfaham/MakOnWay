@@ -22,8 +22,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MakOnWay.Service", "MakOnWa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{6AE4DA27-185E-48BD-975A-B743210609DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakOnWay", "UI\MakOnWay\MakOnWay.csproj", "{823E1BED-BFBF-4511-B4BB-DA26078546E4}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MOW.DataBase", "MOW.DataBase", "{7363186D-1465-4882-A00E-F6E796463EDF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MOW.Repository", "MOW.Repository", "{B1FB85A4-E1BE-4149-9FC3-70DEA818E6E0}"
@@ -46,16 +44,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MOW.Utilities", "Core\MOW.U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPanel", "CPanel\CPanel.csproj", "{C56929CE-8E5F-4A15-92CC-CEDCE8002555}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakOnWay", "UI\MakOnWay\MakOnWay.csproj", "{823E1BED-BFBF-4511-B4BB-DA26078546E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{823E1BED-BFBF-4511-B4BB-DA26078546E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{823E1BED-BFBF-4511-B4BB-DA26078546E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{823E1BED-BFBF-4511-B4BB-DA26078546E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{823E1BED-BFBF-4511-B4BB-DA26078546E4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8D10A623-2DD1-463C-928F-DD6ACDA29DF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8D10A623-2DD1-463C-928F-DD6ACDA29DF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D10A623-2DD1-463C-928F-DD6ACDA29DF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -90,6 +86,10 @@ Global
 		{C56929CE-8E5F-4A15-92CC-CEDCE8002555}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C56929CE-8E5F-4A15-92CC-CEDCE8002555}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C56929CE-8E5F-4A15-92CC-CEDCE8002555}.Release|Any CPU.Build.0 = Release|Any CPU
+		{823E1BED-BFBF-4511-B4BB-DA26078546E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{823E1BED-BFBF-4511-B4BB-DA26078546E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{823E1BED-BFBF-4511-B4BB-DA26078546E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{823E1BED-BFBF-4511-B4BB-DA26078546E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
